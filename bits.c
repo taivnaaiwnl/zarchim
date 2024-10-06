@@ -244,11 +244,9 @@ int negate(int x) {
  *   Rating: 3
  */
 int isAsciiDigit(int x) {
-  int lowerBound = 0x30; // ASCII '0'
-  int upperBound = 0x3a; // ASCII '9' + 1 (дараагийн тэмдэгт)
-
-  // Шалгалт: lowerBound ≤ x < upperBound
-  return !((x + (~lowerBound + 1)) >> 31) & ((upperBound + (~x + 1)) >> 31);
+   int lowerBound = 0x30;
+   int upperBound = 0x3a;
+   return !((x + (~lowerBound + 1)) >> 31) & (x + (~upperBound + 1)) >> 31; 
 }
 
 /* 
